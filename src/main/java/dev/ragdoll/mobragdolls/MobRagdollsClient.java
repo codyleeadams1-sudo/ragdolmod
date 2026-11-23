@@ -5,9 +5,8 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.KeyMapping;
-import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import org.lwjgl.glfw.GLFW;
 
 public final class MobRagdollsClient implements ClientModInitializer {
@@ -18,9 +17,10 @@ public final class MobRagdollsClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         KeyMapping.Category category = KeyMapping.Category.register(
-                ResourceLocation.fromNamespaceAndPath(MOD_ID, "main")
+                Identifier.fromNamespaceAndPath(MOD_ID, "main")
         );
-        toggleKey = KeyBindingHelper.registerKeyMapping(new KeyMapping(
+
+        toggleKey = KeyBindingHelper.registerKeyBinding(new KeyMapping(
                 "key.mob_ragdolls.toggle",
                 InputConstants.Type.KEYSYM,
                 GLFW.GLFW_KEY_R,
@@ -37,6 +37,7 @@ public final class MobRagdollsClient implements ClientModInitializer {
                     );
                 }
             }
+
             if (enabled) {
                 RagdollManager.tick(client);
             }
