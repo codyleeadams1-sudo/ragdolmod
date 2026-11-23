@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "mob_ragdolls",
+  "version": "${version}",
+  "name": "Mob Ragdolls",
+  "description": "Client-side ragdoll physics prototype for Minecraft mobs.",
+  "authors": ["Mob Ragdolls contributors"],
+  "contact": {
+    "sources": "https://github.com/your-name/mob-ragdolls"
+  },
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": ["dev.ragdoll.mobragdolls.MobRagdollsClient"]
+  },
+  "depends": {
+    "fabricloader": ">=0.18.1",
+    "minecraft": "1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
